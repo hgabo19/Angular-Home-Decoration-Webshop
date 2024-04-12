@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "home-decor-webshop-proje-b44f8": {
+      "hosting": {
+        "home-decoration-webshop": [
+          "home-decor-aeki"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "home-decor-webshop-proje-b44f8"
+  }
+}

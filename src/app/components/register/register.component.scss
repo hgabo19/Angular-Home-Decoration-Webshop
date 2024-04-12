@@ -1,0 +1,46 @@
+.container {
+  background-color: rgba(226, 223, 223, 0.95);
+  padding: 2rem;
+  text-align: center;
+  width: 35rem;
+  margin-bottom: 20%;
+  border-radius: 5%;
+  box-shadow: 5px 15px 10px rgb(29, 29, 29);
+
+  mat-form-field {
+    width: 50%;
+  }
+
+  .button-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    // button {
+    //   padding: 1.3rem;
+    // }
+    .custom-button {
+      background-color: rgb(56, 38, 216);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .already-registered-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      color: rgb(100, 99, 99);
+      cursor: pointer;
+      padding: 0;
+      border-bottom: 2px solid grey;
+      opacity: 1;
+
+      transition: border-bottom 300ms;
+
+      &:hover {
+        border-bottom: 2px solid rgb(79, 62, 235);
+      }
+    }
+  }
+}

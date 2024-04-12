@@ -7,11 +7,56 @@ import { HomeComponent } from './components/home/home.component';
 import { DecorationsComponent } from './components/decorations/decorations.component';
 import { BestSellingComponent } from './components/best-selling/best-selling.component';
 import { CartComponent } from './components/cart/cart.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { LoginModule } from './components/login/login.module';
+import { RegisterModule } from './components/register/register.module';
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, DecorationsComponent, BestSellingComponent, CartComponent],
-    imports: [BrowserModule, AppRoutingModule],
-    providers: [],
-    bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    DecorationsComponent,
+    BestSellingComponent,
+    CartComponent,
+    NotFoundComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    LoginModule,
+    RegisterModule,
+    AngularFireModule.initializeApp({
+      projectId: 'home-decor-webshop-proje-b44f8',
+      appId: '1:491444131116:web:617f82c235b8bf1b8a0889',
+      storageBucket: 'home-decor-webshop-proje-b44f8.appspot.com',
+      apiKey: 'AIzaSyBoT-DVqmmTLDndgIgSuqdnGtkR73583sM',
+      authDomain: 'home-decor-webshop-proje-b44f8.firebaseapp.com',
+      messagingSenderId: '491444131116',
+      measurementId: 'G-KTYNE1GZ5Z',
+    }),
+    // provideFirebaseApp(() =>
+    //   initializeApp({
+    //     projectId: 'home-decor-webshop-proje-b44f8',
+    //     appId: '1:491444131116:web:617f82c235b8bf1b8a0889',
+    //     storageBucket: 'home-decor-webshop-proje-b44f8.appspot.com',
+    //     apiKey: 'AIzaSyBoT-DVqmmTLDndgIgSuqdnGtkR73583sM',
+    //     authDomain: 'home-decor-webshop-proje-b44f8.firebaseapp.com',
+    //     messagingSenderId: '491444131116',
+    //     measurementId: 'G-KTYNE1GZ5Z',
+    //   })
+    // ),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
