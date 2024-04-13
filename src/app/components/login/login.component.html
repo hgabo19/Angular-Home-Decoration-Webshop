@@ -9,6 +9,7 @@
           type="email"
           name="email"
           id="email"
+          autocomplete="on"
           [formControl]="email"
         />
       </mat-form-field>
@@ -20,6 +21,7 @@
           type="password"
           name="password"
           id="password"
+          autocomplete="off"
           [formControl]="password"
         />
       </mat-form-field>
@@ -27,12 +29,7 @@
         <button mat-raised-button color="primary" (click)="login()">
           Login
         </button>
-        <button
-          mat-raised-button
-          color="primary"
-          routerLink="/register"
-          routerLinkActive="active"
-        >
+        <button mat-raised-button color="primary" routerLink="/register">
           Register
         </button>
       </div>

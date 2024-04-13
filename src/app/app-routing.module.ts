@@ -1,21 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { DecorationsComponent } from './components/decorations/decorations.component';
-import { BestSellingComponent } from './components/best-selling/best-selling.component';
-import { CartComponent } from './components/cart/cart.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { authGuard } from './shared/services/auth.guard';
 
 const routes: Routes = [
-  { path: 'decorations', component: DecorationsComponent },
-  { path: 'best-selling', component: BestSellingComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'decorations',
+    loadChildren: () =>
+      import('./components/decorations/decorations.module').then(
+        (m) => m.DecorationsModule
+      ),
+  },
+  {
+    path: 'best-selling',
+    loadChildren: () =>
+      import('./components/best-selling/best-selling.module').then(
+        (m) => m.BestSellingModule
+      ),
+    canActivate: [authGuard],
+  },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./components/cart/cart.module').then((m) => m.CartModule),
+    canActivate: [authGuard],
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./components/login/login.module').then((m) => m.LoginModule),
+  },
   { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./components/not-found/not-found.module').then(
+        (m) => m.NotFoundModule
+      ),
+  },
+  // { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

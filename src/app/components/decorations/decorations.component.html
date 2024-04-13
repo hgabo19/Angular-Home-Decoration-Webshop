@@ -1,1 +1,15 @@
-<p>decorations works!</p>
+<div class="container">
+  <div class="grid-container">
+    <div *ngFor="let decoration of decorations" class="items">
+      <img
+        class="item-image"
+        [src]="'assets/' + decoration.image_url"
+        alt="{{ decoration.name }}"
+      />
+      <div class="information">
+        <h1 class="item-name">{{ decoration.name }}</h1>
+        <p class="item-price">{{ decoration.price }}$(USD)</p>
+      </div>
+    </div>
+  </div>
+</div>

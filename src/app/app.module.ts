@@ -4,10 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { DecorationsComponent } from './components/decorations/decorations.component';
-import { BestSellingComponent } from './components/best-selling/best-selling.component';
-import { CartComponent } from './components/cart/cart.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -18,14 +14,7 @@ import { LoginModule } from './components/login/login.module';
 import { RegisterModule } from './components/register/register.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    DecorationsComponent,
-    BestSellingComponent,
-    CartComponent,
-    NotFoundComponent,
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

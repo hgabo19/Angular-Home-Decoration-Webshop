@@ -1,12 +1,57 @@
 <header>
   <nav>
     <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/decorations">Decorations</a></li>
-      <li><a routerLink="/best-selling">Best selling</a></li>
-      <li><a routerLink="/cart">Cart</a></li>
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/register">Register</a></li>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="activeButton"
+          ariaCurrentWhenActive="page"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/decorations"
+          routerLinkActive="activeButton"
+          ariaCurrentWhenActive="page"
+          >Decorations</a
+        >
+      </li>
+      <li *ngIf="currentUser">
+        <a
+          routerLink="/best-selling"
+          routerLinkActive="activeButton"
+          ariaCurrentWhenActive="page"
+          >Best selling</a
+        >
+      </li>
+      <li *ngIf="currentUser">
+        <a
+          routerLink="/cart"
+          routerLinkActive="activeButton"
+          ariaCurrentWhenActive="page"
+          >Cart</a
+        >
+      </li>
+      <li *ngIf="!currentUser">
+        <a
+          routerLink="/login"
+          routerLinkActive="activeButton"
+          ariaCurrentWhenActive="page"
+          >Login</a
+        >
+      </li>
+      <li *ngIf="currentUser">
+        <a routerLink="/login" (click)="logout()">Logout</a>
+      </li>
+      <li *ngIf="!currentUser">
+        <a
+          routerLink="/register"
+          routerLinkActive="activeButton"
+          ariaCurrentWhenActive="page"
+          >Register</a
+        >
+      </li>
     </ul>
   </nav>
 </header>

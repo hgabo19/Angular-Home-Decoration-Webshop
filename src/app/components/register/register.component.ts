@@ -7,6 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
+import { User } from 'src/app/shared/models/User';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +20,8 @@ export class RegisterComponent {
   constructor(
     private location: Location,
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   alreadyRegistered() {
@@ -42,8 +45,22 @@ export class RegisterComponent {
           this.registerForm.get('email')?.value as string,
           this.registerForm.get('password')?.value as string
         )
-        .then((cretentials) => {
-          console.log(cretentials);
+        .then((credentials) => {
+          console.log(credentials);
+          const user: User = {
+            id: credentials.user?.uid as string,
+            email: this.registerForm.get('email')?.value as string,
+            username: this.registerForm.get('username')?.value as string,
+          };
+
+          this.userService
+            .create(user)
+            .then((_) => {
+              console.log('User created!');
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         })
         .catch((error) => {
           console.error(error);

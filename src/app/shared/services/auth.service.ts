@@ -5,13 +5,21 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private fireAuth: AngularFireAuth) {}
 
   login(email: string, password: string) {
-    return this.auth.signInWithEmailAndPassword(email, password);
+    return this.fireAuth.signInWithEmailAndPassword(email, password);
   }
 
   register(email: string, password: string) {
-    return this.auth.createUserWithEmailAndPassword(email, password);
+    return this.fireAuth.createUserWithEmailAndPassword(email, password);
+  }
+
+  isUserLoggedIn() {
+    return this.fireAuth.user;
+  }
+
+  logout() {
+    return this.fireAuth.signOut();
   }
 }
