@@ -27,7 +27,7 @@ export class DecorationService {
     return this.decorations$;
   }
 
-  loadAllImages(image_url: string) {
-    return this.fireStorage.ref(image_url).getDownloadURL();
-  }
+  // loadAllImages(image_url: string) {
+  //   return this.fireStorage.ref(image_url).getDownloadURL();
+  // }
 }

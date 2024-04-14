@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { CartItem } from '../models/CartItem';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
+  constructor(private angularFirestore: AngularFirestore) {}
 
-  constructor() { }
+  saveDecorationToCart(cartItem: CartItem, userId: string) {}
 }

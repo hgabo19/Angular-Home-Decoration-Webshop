@@ -12,7 +12,7 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     .items {
       position: relative;
-      background-color: gray;
+      background-color: rgb(182, 166, 137);
       margin: 0;
       padding: 0;
       border-radius: 3%;
@@ -36,29 +36,24 @@
         flex-direction: column;
 
         .item-name {
-          font-family: cursive;
-          color: aquamarine;
+          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+          color: rgb(92, 29, 29);
           padding-bottom: 3rem;
           font-size: 1.4rem;
           margin: 0;
+          font-weight: 800;
         }
         .item-price {
           position: absolute;
           bottom: 0;
           left: 1rem;
           color: whitesmoke;
-          font-size: 2.2rem;
-          font-family: monospace;
+          font-size: 1.6rem;
+          font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+            "Lucida Sans", Arial, sans-serif;
+          font-weight: 500;
         }
       }
     }
   }
-
-  // @media only screen and (max-width: 800px) {
-  //   .grid-container {
-  //     display: flex;
-  //     flex-direction: column;
-  //     gap: 5rem;
-  //   }
-  // }
 }

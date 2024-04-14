@@ -16,9 +16,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.authService.isUserLoggedIn().subscribe(
       (user) => {
-        console.log(user);
-
         this.currentUser = user;
+        // console.log(this.currentUser);
+
         localStorage.setItem('user', JSON.stringify(this.currentUser));
       },
       (error) => {

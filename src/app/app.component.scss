@@ -2,8 +2,8 @@ header {
   margin: 0;
   padding: 0;
   nav {
-    background-color: black;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    background-color: #3d2814;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     ul {
       display: flex;
       padding: 2rem;
@@ -16,7 +16,8 @@ header {
         color: whitesmoke;
         text-decoration: none;
         padding: 0.5rem;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        font-weight: 900;
         opacity: 1;
         transition: opacity 300ms;
 
