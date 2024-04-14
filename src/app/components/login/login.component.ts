@@ -14,15 +14,12 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    console.log('email', this.email);
-    console.log('pd', this.password);
-
     this.authService.login(
       this.email?.value as string,
       this.password?.value as string
     );
     this.email.setValue('');
     this.password.setValue('');
-    this.router.navigateByUrl('decorations');
+    this.router.navigateByUrl('');
   }
 }

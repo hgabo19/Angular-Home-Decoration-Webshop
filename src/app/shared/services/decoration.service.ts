@@ -12,7 +12,6 @@ import { Observable } from 'rxjs';
 })
 export class DecorationService {
   private decorationsCollection: AngularFirestoreCollection<Decoration>;
-  decorations$: Observable<Decoration[]>;
 
   constructor(
     private angularFirestore: AngularFirestore,
@@ -20,11 +19,10 @@ export class DecorationService {
   ) {
     this.decorationsCollection =
       angularFirestore.collection<Decoration>('Decorations');
-    this.decorations$ = this.decorationsCollection.valueChanges();
   }
 
   getDecorations(): Observable<Decoration[]> {
-    return this.decorations$;
+    return this.decorationsCollection.valueChanges();
   }
 
   // loadAllImages(image_url: string) {
