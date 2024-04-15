@@ -3,8 +3,10 @@ import { OrderByDirection } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
 import { Decoration } from 'src/app/shared/models/Decoration';
 import { User } from 'src/app/shared/models/User';
+import { WishlistItem } from 'src/app/shared/models/WishlistItem';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { DecorationService } from 'src/app/shared/services/decoration.service';
+import { WishlistService } from 'src/app/shared/services/wishlist.service';
 
 @Component({
   selector: 'app-decorations',
@@ -19,7 +21,8 @@ export class DecorationsComponent implements OnInit, OnDestroy {
   sortField: string = 'price';
   constructor(
     private decorationService: DecorationService,
-    private cartService: CartService
+    private cartService: CartService,
+    private wishlistService: WishlistService
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +49,38 @@ export class DecorationsComponent implements OnInit, OnDestroy {
       });
   }
 
+  addToWishlist(decoration: Decoration) {
+    if (this.currentUserId != null) {
+      const date = new Date();
+      const wishListItem = {
+        userId: this.currentUserId,
+        decorationId: decoration.id,
+        name: decoration.name,
+        date: date,
+        price: decoration.price,
+      };
+      this.wishlistService
+        .isItemInWishlist(decoration.id as string)
+        .then((isAdded) => {
+          if (!isAdded) {
+            this.wishlistService
+              .addToWishlist(wishListItem)
+              .then(() => {
+                alert('Added to Wishlist!');
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          } else {
+            alert("You've already added this item to your wishlist!");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }
+
   addToCart(decoration: Decoration) {
     if (this.currentUserId != null) {
       const cartItem = {
@@ -64,13 +99,13 @@ export class DecorationsComponent implements OnInit, OnDestroy {
             this.cartService
               .addToCart(cartItem)
               .then(() => {
-                alert('Decoration added! :)');
+                alert('Decoration added to cart!');
               })
               .catch((error) => {
                 console.error('Error in adding item to cart', error);
               });
           } else {
-            alert('This decoration is already in your cart! :(');
+            alert('This decoration is already in your cart!');
           }
         })
         .catch((error) => {

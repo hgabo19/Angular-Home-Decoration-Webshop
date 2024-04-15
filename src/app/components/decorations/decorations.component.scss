@@ -2,7 +2,9 @@
   background-color: rgba(226, 223, 223, 0.8);
   padding: 2rem;
   text-align: center;
-  max-width: 70%;
+  min-width: 30rem;
+  max-width: 80%;
+  min-height: 20rem;
   margin: 4rem auto;
   border-radius: 1%;
   box-shadow: 5px 15px 10px rgb(29, 29, 29);
@@ -86,6 +88,30 @@
           font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
             "Lucida Sans", Arial, sans-serif;
           font-weight: 500;
+        }
+
+        .wishlist-icon-container {
+          position: absolute;
+          bottom: 0.3rem;
+          right: 4rem;
+          padding: 0.3rem 0.3rem 0rem 0.3rem;
+          border-radius: 100%;
+          transition: background-color 300ms;
+          mat-icon {
+            color: white;
+          }
+
+          &:hover {
+            border-radius: 100%;
+            background-color: rgb(92, 29, 29);
+          }
+          button {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            border: 0;
+            cursor: pointer;
+          }
         }
 
         .icon-container {

@@ -45,7 +45,11 @@
       .information {
         display: flex;
         flex-direction: column;
-
+        mat-divider {
+          margin: 2rem 0;
+          background-color: whitesmoke;
+          height: 2px;
+        }
         .item-name {
           font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
           color: rgb(92, 29, 29);

@@ -13,6 +13,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { LoginModule } from './components/login/login.module';
 import { RegisterModule } from './components/register/register.module';
 import { MatIconModule } from '@angular/material/icon';
+import { DecorationsModule } from './components/decorations/decorations.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],

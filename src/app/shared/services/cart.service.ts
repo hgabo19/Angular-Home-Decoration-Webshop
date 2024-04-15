@@ -4,7 +4,6 @@ import {
   AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
 import { CartItem } from '../models/CartItem';
-import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root',

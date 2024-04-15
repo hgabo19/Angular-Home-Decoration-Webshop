@@ -20,6 +20,11 @@
       <div class="information">
         <h1 class="item-name">{{ decoration.name }}</h1>
         <p class="item-price">{{ decoration.price }}$(USD)</p>
+        <div class="wishlist-icon-container" *ngIf="this.currentUserId">
+          <button (click)="addToWishlist(decoration)">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </div>
         <div class="icon-container" *ngIf="this.currentUserId">
           <button (click)="addToCart(decoration)">
             <svg

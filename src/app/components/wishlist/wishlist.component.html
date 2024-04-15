@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Wishlist</h1>
+  <div *ngFor="let item of wishItems" class="item-container">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title
+          ><p class="item-header">Wishlist item</p></mat-panel-title
+        >
+        <mat-panel-description>
+          <p class="item-header">{{ item.name }}</p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p class="content">Price: {{ item.price }}$</p>
+      <p class="content">Saved at: {{ item.date | dateFormat }}</p>
+      <button mat-raised-button class="remove-btn" (click)="removeItem(item)">
+        Remove
+      </button>
+    </mat-expansion-panel>
+  </div>
+</div>

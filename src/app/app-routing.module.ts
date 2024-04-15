@@ -13,10 +13,10 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'best-selling',
+    path: 'wishlist',
     loadChildren: () =>
-      import('./components/best-selling/best-selling.module').then(
-        (m) => m.BestSellingModule
+      import('./components/wishlist/wishlist.module').then(
+        (m) => m.WishlistModule
       ),
     canActivate: [authGuard],
   },
@@ -40,7 +40,6 @@ const routes: Routes = [
         (m) => m.NotFoundModule
       ),
   },
-  // { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
