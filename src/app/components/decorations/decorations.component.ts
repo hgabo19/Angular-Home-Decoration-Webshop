@@ -34,7 +34,6 @@ export class DecorationsComponent implements OnInit, OnDestroy {
       const user = JSON.parse(storedUser);
       if (user && user.uid) {
         this.currentUserId = user.uid;
-        console.log(user.uid);
       }
     }
   }
@@ -66,7 +65,6 @@ export class DecorationsComponent implements OnInit, OnDestroy {
               .addToCart(cartItem)
               .then(() => {
                 alert('Decoration added! :)');
-                console.log('Decoration added');
               })
               .catch((error) => {
                 console.error('Error in adding item to cart', error);
@@ -78,8 +76,6 @@ export class DecorationsComponent implements OnInit, OnDestroy {
         .catch((error) => {
           console.error('Error in cart check:', error);
         });
-
-      // console.log(cartItem);
     }
   }
 

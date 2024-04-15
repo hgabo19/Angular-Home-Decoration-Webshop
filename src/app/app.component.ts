@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
     this.authService.isUserLoggedIn().subscribe(
       (user) => {
         this.currentUser = user;
-        // console.log(this.currentUser);
 
         localStorage.setItem('user', JSON.stringify(this.currentUser));
       },
@@ -32,7 +31,7 @@ export class AppComponent implements OnInit {
     this.authService
       .logout()
       .then(() => {
-        console.log('Logged out');
+        alert('Logged out');
       })
       .catch((error) => {
         console.error(error);

@@ -46,7 +46,6 @@ export class RegisterComponent {
           this.registerForm.get('password')?.value as string
         )
         .then((credentials) => {
-          console.log(credentials);
           const user: User = {
             id: credentials.user?.uid as string,
             email: this.registerForm.get('email')?.value as string,
@@ -56,10 +55,10 @@ export class RegisterComponent {
           this.userService
             .create(user)
             .then((_) => {
-              console.log('User created!');
+              alert('Welcome here!');
             })
             .catch((error) => {
-              console.log(error);
+              console.error(error);
             });
         })
         .catch((error) => {
