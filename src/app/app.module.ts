@@ -12,6 +12,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { LoginModule } from './components/login/login.module';
 import { RegisterModule } from './components/register/register.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -21,6 +22,7 @@ import { RegisterModule } from './components/register/register.module';
     BrowserAnimationsModule,
     LoginModule,
     RegisterModule,
+    MatIconModule,
     AngularFireModule.initializeApp({
       projectId: 'home-decor-webshop-proje-b44f8',
       appId: '1:491444131116:web:617f82c235b8bf1b8a0889',

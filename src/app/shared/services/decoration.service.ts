@@ -6,26 +6,25 @@ import {
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Decoration } from '../models/Decoration';
 import { Observable } from 'rxjs';
+import { OrderByDirection } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DecorationService {
-  private decorationsCollection: AngularFirestoreCollection<Decoration>;
-
   constructor(
     private angularFirestore: AngularFirestore,
     private fireStorage: AngularFireStorage
-  ) {
-    this.decorationsCollection =
-      angularFirestore.collection<Decoration>('Decorations');
-  }
+  ) {}
 
-  getDecorations(): Observable<Decoration[]> {
-    return this.decorationsCollection.valueChanges();
+  getDecorations(
+    sortOrder: OrderByDirection,
+    sortField: string
+  ): Observable<Decoration[]> {
+    return this.angularFirestore
+      .collection<Decoration>('Decorations', (ref) =>
+        ref.orderBy(sortField, sortOrder)
+      )
+      .valueChanges();
   }
-
-  // loadAllImages(image_url: string) {
-  //   return this.fireStorage.ref(image_url).getDownloadURL();
-  // }
 }

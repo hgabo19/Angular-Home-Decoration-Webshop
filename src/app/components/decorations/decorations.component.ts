@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { OrderByDirection } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
 import { Decoration } from 'src/app/shared/models/Decoration';
 import { User } from 'src/app/shared/models/User';
@@ -14,6 +15,8 @@ export class DecorationsComponent implements OnInit, OnDestroy {
   private decorationsSubscription: Subscription = new Subscription();
   decorations: Decoration[] = [];
   currentUserId: string = '';
+  sortOrder: OrderByDirection = 'asc';
+  sortField: string = 'price';
   constructor(
     private decorationService: DecorationService,
     private cartService: CartService
@@ -21,7 +24,7 @@ export class DecorationsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.decorationsSubscription = this.decorationService
-      .getDecorations()
+      .getDecorations(this.sortOrder, this.sortField)
       .subscribe((data) => {
         this.decorations = data;
       });
@@ -36,6 +39,14 @@ export class DecorationsComponent implements OnInit, OnDestroy {
     }
   }
 
+  onSortChange() {
+    this.decorationService
+      .getDecorations(this.sortOrder, this.sortField)
+      .subscribe((data) => {
+        this.decorations = data;
+      });
+  }
+
   addToCart(decoration: Decoration) {
     if (this.currentUserId != null) {
       const cartItem = {
@@ -46,6 +57,7 @@ export class DecorationsComponent implements OnInit, OnDestroy {
         quantity: 1, // Initial quantity
         image_url: decoration.image_url, // Assuming an 'imageUrl' property exists
       };
+
       this.cartService
         .isItemInCart(this.currentUserId, decoration.id)
         .then((isInCart) => {

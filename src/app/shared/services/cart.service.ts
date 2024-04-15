@@ -33,6 +33,16 @@ export class CartService {
     return cartItemCollection.valueChanges();
   }
 
+  update(itemId: string, newQuantity: number): Promise<void> {
+    return this.cartItemsCollection
+      .doc(itemId)
+      .update({ quantity: newQuantity });
+  }
+
+  delete(itemId: string): Promise<void> {
+    return this.cartItemsCollection.doc(itemId).delete();
+  }
+
   async isItemInCart(userId: string, decorationId: string): Promise<boolean> {
     const result = await this.cartItemsCollection.ref
       .where('userId', '==', userId)

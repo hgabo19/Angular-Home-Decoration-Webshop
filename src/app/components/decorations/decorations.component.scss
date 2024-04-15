@@ -6,6 +6,33 @@
   margin: 4rem auto;
   border-radius: 1%;
   box-shadow: 5px 15px 10px rgb(29, 29, 29);
+
+  .sorting-div {
+    text-align: left;
+    font-size: 2rem;
+    color: black;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    select {
+      width: 20rem; /* Adjust width as desired */
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1.5rem; /* Adjust font size if needed */
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    /* Hover and focus styles for select element */
+    select:hover {
+      border-color: #999;
+    }
+
+    select:focus {
+      border-color: #3f51b5;
+      outline: none; /* Remove default outline on focus */
+    }
+  }
   .login-message {
     color: black;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;

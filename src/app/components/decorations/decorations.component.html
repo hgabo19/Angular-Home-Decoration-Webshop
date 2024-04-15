@@ -3,6 +3,13 @@
     Please log in to buy something!
   </h1>
   <h1 class="login-message">Decorations</h1>
+  <div class="sorting-div">
+    <label>Sort by: </label>
+    <select (change)="onSortChange()" [(ngModel)]="sortOrder">
+      <option selected value="asc">Price (Ascending)</option>
+      <option value="desc">Price (Descending)</option>
+    </select>
+  </div>
   <div class="grid-container">
     <div *ngFor="let decoration of decorations" class="items">
       <img

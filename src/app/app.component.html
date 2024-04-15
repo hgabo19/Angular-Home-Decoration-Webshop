@@ -6,7 +6,7 @@
           routerLink="/"
           routerLinkActive="activeButton"
           ariaCurrentWhenActive="page"
-          >Home</a
+          ><mat-icon>home</mat-icon> Home</a
         >
       </li>
       <li>
@@ -14,7 +14,7 @@
           routerLink="/decorations"
           routerLinkActive="activeButton"
           ariaCurrentWhenActive="page"
-          >Decorations</a
+          ><mat-icon>reorder</mat-icon> Decorations</a
         >
       </li>
       <li *ngIf="currentUser">
@@ -22,7 +22,7 @@
           routerLink="/best-selling"
           routerLinkActive="activeButton"
           ariaCurrentWhenActive="page"
-          >Best selling</a
+          ><mat-icon>favorite</mat-icon> Best selling</a
         >
       </li>
       <li *ngIf="currentUser">
@@ -30,7 +30,7 @@
           routerLink="/cart"
           routerLinkActive="activeButton"
           ariaCurrentWhenActive="page"
-          >Cart</a
+          ><mat-icon>shopping_cart</mat-icon> Cart</a
         >
       </li>
       <li *ngIf="!currentUser">
@@ -38,18 +38,20 @@
           routerLink="/login"
           routerLinkActive="activeButton"
           ariaCurrentWhenActive="page"
-          >Login</a
+          ><mat-icon>apps</mat-icon> Login</a
         >
       </li>
       <li *ngIf="currentUser">
-        <a routerLink="/login" (click)="logout()">Logout</a>
+        <a routerLink="/login" (click)="logout()"
+          ><mat-icon>arrow_right_alt</mat-icon> Logout</a
+        >
       </li>
       <li *ngIf="!currentUser">
         <a
           routerLink="/register"
           routerLinkActive="activeButton"
           ariaCurrentWhenActive="page"
-          >Register</a
+          ><mat-icon>person_add</mat-icon> Register</a
         >
       </li>
     </ul>
