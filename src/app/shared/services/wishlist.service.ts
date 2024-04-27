@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
 import { WishlistItem } from '../models/WishlistItem';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WishlistService {
-  constructor(private angularFirestore: AngularFirestore) {}
+  private wishlistCollection: AngularFirestoreCollection<WishlistItem>;
+  constructor(private angularFirestore: AngularFirestore) {
+    this.wishlistCollection =
+      angularFirestore.collection<WishlistItem>('WishlistItems');
+  }
 
   addToWishlist(wishlistItem: WishlistItem) {
     wishlistItem.id = this.angularFirestore.createId();
@@ -41,14 +48,11 @@ export class WishlistService {
       localStorage.getItem('user') as string
     ) as firebase.default.User;
 
-    const result = await this.angularFirestore
-      .collection<WishlistItem>('WishlistItems', (ref) =>
-        ref
-          .where('userId', '==', user.uid)
-          .where('decorationId', '==', decorationId)
-      )
+    const result = await this.wishlistCollection.ref
+      .where('userId', '==', user.uid)
+      .where('decorationId', '==', decorationId)
       .get();
 
-    return result ? true : false;
+    return result.empty ? false : true;
   }
 }

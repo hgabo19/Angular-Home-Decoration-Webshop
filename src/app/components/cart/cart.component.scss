@@ -2,7 +2,7 @@
   background-color: rgba(226, 223, 223, 0.8);
   padding: 2rem;
   text-align: center;
-  min-width: 80rem;
+  min-width: 60rem;
   min-height: 20rem;
   margin: 4rem auto;
   padding: 2rem 5rem;
@@ -15,13 +15,14 @@
     font-weight: 900;
     padding: 3rem 0;
   }
-  .grid-list {
+  .list {
     margin: 0 auto;
     width: 70%;
     display: flex;
     flex-direction: column;
     gap: 5rem;
     .item {
+      padding: 2rem;
       position: relative;
       background-color: rgb(182, 166, 137);
       margin: 0;
@@ -34,11 +35,11 @@
         box-shadow: 5px 18px 15px rgb(29, 29, 29);
       }
       .item-image {
-        width: 100%;
-        height: 20rem;
+        // width: 100%;
+        height: 23rem;
         margin: 0;
         padding: 0;
-        object-fit: cover;
+        object-fit: contain;
         object-position: center;
       }
 
