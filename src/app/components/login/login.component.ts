@@ -14,22 +14,17 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    let successfuLLogin: boolean = false;
     this.authService
       .login(this.email?.value as string, this.password?.value as string)
       .then(() => {
-        successfuLLogin = true;
+        alert('Welcome to the page!');
+        this.email.setValue('');
+        this.password.setValue('');
+        this.router.navigateByUrl('decorations');
       })
       .catch(() => {
         alert('Wrong email or password!');
-        successfuLLogin = false;
         return;
       });
-
-    if (successfuLLogin) {
-      this.email.setValue('');
-      this.password.setValue('');
-      this.router.navigateByUrl('');
-    }
   }
 }
