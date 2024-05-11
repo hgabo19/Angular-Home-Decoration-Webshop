@@ -21,7 +21,7 @@ export class LoginComponent {
           alert('Welcome to the page!');
           this.email.setValue('');
           this.password.setValue('');
-          this.router.navigateByUrl('decorations');
+          this.router.navigateByUrl('');
         })
         .catch(() => {
           alert('Wrong email or password!');
