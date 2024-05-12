@@ -1,3 +1,5 @@
+Discord elérhetőség probléma esetén - gabooka19
+
 # HomeDecorationWebshop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
